@@ -2,8 +2,10 @@ package br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.modifique;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Solucao {
+	
 
 	/**
 	 * 
@@ -32,10 +34,36 @@ public class Solucao {
 	 * É esperado que o retorno respeite a ordem de recebimento
 	 */
 	public static List<String[]> executa(List<String> infoTransacoes, List<String> infoAdiantamentos) {
+	
+		final List<Recebivel> recebiveis = infoTransacoes
+				.stream()
+				
+				// *Transformando o input inicial:
+				.map(new TransacaoInputMapper()::process)
+				
+				// *Transformando para recebiveis:
+				.map(new TransacaoToRecebiveisProcessor()::process)
+				
+				// *Aplicando taxa de operação:
+				.map(new AplicaTaxaOperacional()::process)
+				
+				.collect(Collectors.toList());
+
 		
-		return List.of(new String[][] { 
-					 {"pago","200","194","04/03/2021"} 					 
-					}); 
+		
+		// TODO MAPPER OUTPUT --------------------------------------------------
+		
+		return recebiveis
+				.stream()
+				.map(recebivel -> new String[]{
+						recebivel.getStatus().getDescricao(),
+						recebivel.getTransacao().getValor().toPlainString(),
+						recebivel.getValorAReceber().toPlainString(),
+						recebivel.getDataRecebimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+					})
+				.collect(Collectors.toList());
+
+		// TODO MAPPER OUTPUT --------------------------------------------------
 	}
 
 }

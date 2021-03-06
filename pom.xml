@@ -9,7 +9,7 @@
 	<name>liga-qualidade-desafio-provedor-pagamentos</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>1.9</java.version>
 	</properties>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
@@ -28,4 +28,17 @@
 		</dependency>
 	</dependencies>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
 </project>
