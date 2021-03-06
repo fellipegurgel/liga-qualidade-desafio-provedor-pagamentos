@@ -3,11 +3,14 @@ package br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.modifique;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+/**
+ * total cdd points = 1
+ */
 public abstract class Transacao {
     
     protected Long idTransacao;
     protected BigDecimal valor;
-    protected TipoMetodoPagamento metodoPagamento;
+    protected TipoMetodoPagamento metodoPagamento;//1 pt
     protected LocalDate dataPagamento;
 
     

@@ -38,7 +38,6 @@ public class CenarioRecebiveisComAdiantamento {
 			
 		}
 		
-		
 		List<String[]> retornos = Solucao.executa(paramsTransacoes,adiantamentos);
 		Assertions.assertEquals(retornosEsperados.size(), retornos.size());
 		for(int i=0;i < retornos.size(); i++) {
@@ -83,8 +82,8 @@ public class CenarioRecebiveisComAdiantamento {
 
 	}
 	
-	public static void main(String[] args) {
-		System.out.println(new BigDecimal("85.40").setScale(0,RoundingMode.HALF_EVEN));
-	}
+//	public static void main(String[] args) {
+//		System.out.println(new BigDecimal("85.40").setScale(0,RoundingMode.HALF_EVEN));
+//	}
 
 }

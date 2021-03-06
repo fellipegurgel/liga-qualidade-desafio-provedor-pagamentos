@@ -3,6 +3,9 @@ package br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.modifique;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+/**
+ * total cdd points = 2 (acoplamento)
+ */
 public class Recebivel {
 
     private final Transacao transacao;
@@ -11,15 +14,12 @@ public class Recebivel {
     private LocalDate dataRecebimento;
 
 
-    
     public Recebivel(Transacao transacao, TipoStatusRecebivel status, BigDecimal valorAReceber, LocalDate dataRecebimento) {
         this.transacao = transacao;
         this.status = status;
         this.valorAReceber = valorAReceber;
         this.dataRecebimento = dataRecebimento;
     }
-
-    
 
     public Transacao getTransacao() {
         return transacao;

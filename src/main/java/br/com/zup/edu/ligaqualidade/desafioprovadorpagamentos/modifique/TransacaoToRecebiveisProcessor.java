@@ -1,7 +1,9 @@
 package br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.modifique;
 
 import static br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.modifique.TipoStatusRecebivel.NAO_PROCESSADO;
-
+/**
+ * total cdd points = 3
+ */
 public class TransacaoToRecebiveisProcessor implements Processor<TransacaoCartao, Recebivel>{
     @Override
     public Recebivel process(TransacaoCartao transacaoCartao) {

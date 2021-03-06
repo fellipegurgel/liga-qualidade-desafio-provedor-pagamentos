@@ -4,9 +4,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Solucao {
-	
+/**
+ * total cdd points = 6 Funções como argumento (map, collect)
+ **/
 
+public class Solucao {
 	/**
 	 * 
 	 * @param infoTransacoes dados das transações. A String está formatada da seguinte maneira:		
@@ -49,8 +51,6 @@ public class Solucao {
 				
 				.collect(Collectors.toList());
 
-		
-		
 		// TODO MAPPER OUTPUT --------------------------------------------------
 		
 		return recebiveis

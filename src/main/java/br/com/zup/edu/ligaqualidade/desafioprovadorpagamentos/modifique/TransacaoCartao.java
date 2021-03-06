@@ -4,14 +4,15 @@ package br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.modifique;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+/**
+ * total cdd points = 1
+ */
 public class TransacaoCartao extends Transacao {
     
     private String numeroCartao;
     private String nomeDoCartao;
     private LocalDate validade;
     private String cvv;
-
-    
 
     public TransacaoCartao(Long idTransacao, BigDecimal valor, TipoMetodoPagamento metodoPagamento, LocalDate dataPagamento, String numeroCartao, String nomeDoCartao, LocalDate validade, String cvv) {
         super(idTransacao, valor, metodoPagamento, dataPagamento);
@@ -20,8 +21,6 @@ public class TransacaoCartao extends Transacao {
         this.validade = validade;
         this.cvv = cvv;
     }
-    
-    
 
     public String getNumeroCartao() {
         return numeroCartao;

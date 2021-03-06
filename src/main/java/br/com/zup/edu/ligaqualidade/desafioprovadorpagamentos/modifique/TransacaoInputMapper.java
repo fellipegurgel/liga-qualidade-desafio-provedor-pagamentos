@@ -8,11 +8,14 @@ import static br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.modifique.C
 import static br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.modifique.TipoMetodoPagamento.CARTAO_CREDITO;
 import static br.com.zup.edu.ligaqualidade.desafioprovadorpagamentos.modifique.TipoMetodoPagamento.CARTAO_DEBITO;
 
+/**
+ * total CDD points = 4
+ */
+//1 pt Acoplamento contextual TransacaoCartao
 public class TransacaoInputMapper implements Processor<String, TransacaoCartao>{
     
     private final String DEBITO_LABEL = "DEBITO";
     private final String CREDITO_LABEL = "CREDITO";
-
 
     /**
      * Transforma o input recebido como texto em uma transação de cartão
@@ -24,11 +27,10 @@ public class TransacaoInputMapper implements Processor<String, TransacaoCartao>{
         // *Dividindo essa linha pelas virgulas:
         final String[] props = linhaTransacao.split(",");
         
-        
-        
         // *Valor do pagamento:
         final BigDecimal valor = new BigDecimal(props[0]);
-        
+
+        // 3 pts branches (if ternário) + Acoplamento contextual
         // *Metodo do pagamento:
         final TipoMetodoPagamento metodoPagamento = DEBITO_LABEL.equals(props[1])
                 ? CARTAO_DEBITO
@@ -51,8 +53,7 @@ public class TransacaoInputMapper implements Processor<String, TransacaoCartao>{
 
         // *Id do pagamento:
         final Long id = Long.valueOf(props[6]);
-        
-        
+
         // *Retornando a transação mapeada a partir do input:
         return new TransacaoCartao(id, valor, metodoPagamento, dataPagamento, numeroCartao, nomeCartao, validade, cvv);
     }
